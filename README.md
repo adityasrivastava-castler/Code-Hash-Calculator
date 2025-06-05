@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-The server will start on port 3000 by default.
+The server will start on port 3002 by default.
 
 ## Usage
 
@@ -31,11 +31,11 @@ The server will start on port 3000 by default.
 Send a POST request to `/upload` with a zip file in the request body:
 
 ```bash
-curl -X POST -F "file=@your-file.zip" http://localhost:3000/upload
+curl -X POST -F "file=@your-file.zip" http://localhost:3002/upload
 ```
 
 Or use Postman:
-1. Create a new POST request to `http://localhost:3000/upload`
+1. Create a new POST request to `http://localhost:3002/upload`
 2. In the request body, select "form-data"
 3. Add a key named "file" and select "File" as the type
 4. Choose your zip file
@@ -44,27 +44,16 @@ Or use Postman:
 ### Response Format
 
 The response will include:
-- `files`: Array of file information including path, size, extension, and hash
 - `totalHash`: SHA-256 hash of the entire directory structure
 
 Example response:
 ```json
 {
-  "files": [
-    {
-      "filePath": "example.txt",
-      "fileSize": 1234,
-      "fileExtension": ".txt",
-      "encrypted": false,
-      "encryptionType": "None",
-      "hash": "abc123..."
-    }
-  ],
   "totalHash": "def456..."
 }
 ```
 
 ## Environment Variables
 
-- `PORT`: Server port (default: 3000)
+- `PORT`: Server port (default: 3002)
 - `FILE_LIMIT`: Number of files to process in each chunk (default: 100) 
